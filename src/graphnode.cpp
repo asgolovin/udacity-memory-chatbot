@@ -1,8 +1,10 @@
 #include "graphedge.h"
 #include "graphnode.h"
+#include <iostream>
 
 GraphNode::GraphNode(int id)
 {
+    std::cout << "GraphNode Constructor\n";
     _id = id;
 }
 
@@ -10,8 +12,10 @@ GraphNode::~GraphNode()
 {
     //// STUDENT CODE
     ////
-
-    delete _chatBot; 
+    std::cout << "GraphNode Destructor\n";
+    for (auto edge : _childEdges){
+        delete edge;
+    }
 
     ////
     //// EOF STUDENT CODE
