@@ -32,3 +32,4 @@ build/CMakeFiles/membot.dir/src/chatgui.cpp.o
 build/CMakeFiles/membot.dir/src/chatlogic.cpp.o
 build/CMakeFiles/membot.dir/src/graphedge.cpp.o
 build/CMakeFiles/membot.dir/src/graphnode.cpp.o
+src/.vscode/settings.json
