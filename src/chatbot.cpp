@@ -10,6 +10,7 @@
 
 // constructor WITHOUT memory allocation
 ChatBot::ChatBot() {
+  std::cout << "ChatBot Constructor" << std::endl;
   // invalidate data handles
   _image = nullptr;
   _chatLogic = nullptr;
@@ -43,7 +44,7 @@ ChatBot::~ChatBot() {
 ////
 // copy constructor
 ChatBot::ChatBot(const ChatBot &source) {
-  std::cout << "ChatBot Constructor" << std::endl;
+  std::cout << "ChatBot Copy Constructor" << std::endl;
 
   // invalidate data handles
   _chatLogic = nullptr;
@@ -55,7 +56,8 @@ ChatBot::ChatBot(const ChatBot &source) {
 }
 
 // copy assignment operator
-ChatBot& ChatBot::operator=(const ChatBot &source) {
+ChatBot &ChatBot::operator=(const ChatBot &source) {
+  std::cout << "ChatBot Assignment Operator" << std::endl;
   if (this == &source)
     return *this;
 
@@ -79,7 +81,7 @@ ChatBot& ChatBot::operator=(const ChatBot &source) {
 
 // move constructor
 ChatBot::ChatBot(ChatBot &&source) {
-  std::cout << "ChatBot Constructor" << std::endl;
+  std::cout << "ChatBot Move Constructor" << std::endl;
 
   // invalidate data handles
   _chatLogic = nullptr;
@@ -94,7 +96,8 @@ ChatBot::ChatBot(ChatBot &&source) {
 }
 
 // move assignment operator
-ChatBot& ChatBot::operator=(ChatBot &&source) {
+ChatBot &ChatBot::operator=(ChatBot &&source) {
+  std::cout << "ChatBot Move Assignment Operator" << std::endl;
   if (this == &source)
     return *this;
 
