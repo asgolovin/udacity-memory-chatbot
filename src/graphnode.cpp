@@ -3,7 +3,7 @@
 #include <iostream>
 
 GraphNode::GraphNode(int id) {
-  //std::cout << "GraphNode Constructor\n";
+  // std::cout << "GraphNode Constructor\n";
   _id = id;
 }
 
@@ -11,7 +11,7 @@ GraphNode::~GraphNode() {
   //// STUDENT CODE
   ////
 
-  //std::cout << "GraphNode Destructor\n";
+  // std::cout << "GraphNode Destructor\n";
 
   ////
   //// EOF STUDENT CODE
@@ -39,7 +39,7 @@ void GraphNode::MoveChatbotToNewNode(GraphNode *newNode) {
   //_chatBot = nullptr; // invalidate pointer at source
 }
 
-void GraphNode::ReceiveMessageFromUser(std::string message){
+void GraphNode::ReceiveMessageFromUser(std::string message) {
   _chatBot.ReceiveMessageFromUser(message);
 }
 ////

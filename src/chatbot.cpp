@@ -81,10 +81,9 @@ ChatBot::ChatBot(ChatBot &&source) {
   _rootNode = source._rootNode;
 
   // make another shared image pointer
-  if (source._image != NULL){
+  if (source._image != NULL) {
     _image = std::move(source._image);
-  }
-  else {
+  } else {
     _image = NULL;
   }
 }

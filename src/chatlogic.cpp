@@ -228,7 +228,7 @@ void ChatLogic::SetPanelDialogHandle(ChatBotPanelDialog *panelDialog) {
   _panelDialog = panelDialog;
 }
 
-void ChatLogic::SetCurrentNode(GraphNode *node){ _currentNode = node; }
+void ChatLogic::SetCurrentNode(GraphNode *node) { _currentNode = node; }
 
 void ChatLogic::SetChatbotHandle(ChatBot *chatbot) { _chatBot = chatbot; }
 
