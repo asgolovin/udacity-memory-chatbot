@@ -14,8 +14,6 @@
 ChatLogic::ChatLogic() {
   //// STUDENT CODE
   ////
-  std::cout << "ChatLogic Constructor" << std::endl;
-  
   ////
   //// EOF STUDENT CODE
 }
@@ -23,9 +21,6 @@ ChatLogic::ChatLogic() {
 ChatLogic::~ChatLogic() {
   //// STUDENT CODE
   ////
-
-  std::cout << "ChatLogic Destructor" << std::endl;
-
   ////
   //// EOF STUDENT CODE
 }
