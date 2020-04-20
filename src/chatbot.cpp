@@ -10,7 +10,6 @@
 
 // constructor WITHOUT memory allocation
 ChatBot::ChatBot() {
-  std::cout << "ChatBot Constructor" << std::endl;
   // invalidate data handles
   _image = NULL;
   _chatLogic = nullptr;
@@ -31,13 +30,6 @@ ChatBot::ChatBot(std::string filename) {
 
 ChatBot::~ChatBot() {
   std::cout << "ChatBot Destructor" << std::endl;
-
-  // deallocate heap memory
-  /*if (_image != NULL) // Attention: wxWidgets used NULL and not nullptr
-  {
-    delete _image;
-    _image = NULL;
-  }*/
 }
 
 //// STUDENT CODE
@@ -49,6 +41,7 @@ ChatBot::ChatBot(const ChatBot &source) {
   // copy data handles
   _currentNode = source._currentNode;
   _chatLogic = source._chatLogic;
+  _chatLogic->SetChatbotHandle(this);
   _rootNode = source._rootNode;
 
   // make another shared image pointer
@@ -64,6 +57,7 @@ ChatBot &ChatBot::operator=(const ChatBot &source) {
   // copy data handles
   _currentNode = source._currentNode;
   _chatLogic = source._chatLogic;
+  _chatLogic->SetChatbotHandle(this);
   _rootNode = source._rootNode;
 
   // make another shared image pointer
@@ -78,6 +72,7 @@ ChatBot::ChatBot(ChatBot &&source) {
   // copy data handles
   _currentNode = source._currentNode;
   _chatLogic = source._chatLogic;
+  _chatLogic->SetChatbotHandle(this);
   _rootNode = source._rootNode;
 
   // make another shared image pointer
@@ -86,6 +81,10 @@ ChatBot::ChatBot(ChatBot &&source) {
   } else {
     _image = NULL;
   }
+
+  // set source free
+  source._chatLogic = nullptr;
+  source._image = NULL;
 }
 
 // move assignment operator
@@ -97,10 +96,16 @@ ChatBot &ChatBot::operator=(ChatBot &&source) {
   // copy data handles
   _currentNode = source._currentNode;
   _chatLogic = source._chatLogic;
+  _chatLogic->SetChatbotHandle(this);
   _rootNode = source._rootNode;
 
   // copy image
   _image = std::move(source._image);
+
+  // set source free
+  source._chatLogic = nullptr;
+  source._image = NULL;
+
   return *this;
 }
 
@@ -135,8 +140,8 @@ void ChatBot::ReceiveMessageFromUser(std::string message) {
     newNode = _rootNode;
   }
   // tell current node to move chatbot to new node
-  _currentNode->MoveChatbotToNewNode(newNode);
   _chatLogic->SetCurrentNode(newNode);
+  _currentNode->MoveChatbotToNewNode(newNode);
 }
 
 void ChatBot::SetCurrentNode(GraphNode *node) {
